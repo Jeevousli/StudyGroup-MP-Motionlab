@@ -17,3 +17,14 @@ perintah : git checkout #namabranch
 
 git commit
 Menyimpan save baru perubahan ke dalam repository lokal. Commit bersifat permanen kecuali diubah.
+ 
+ 
+ Mengakses Repository dengan HTTPS
+contoh : Clone Repository
+Gunakan URL HTTPS untuk meng-clone repository:
+
+- Pergi ke halaman repository GitHub.
+- Klik tombol Code dan pilih HTTPS.
+- jalankan perintah di terminal untuk meng-clone repository:
+- Salin kode :
+  git clone https://github.com/username/repository-name.git
