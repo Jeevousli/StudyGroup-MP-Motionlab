@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -11,34 +12,76 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.example.jetpackcomposelayout.R
 
+// Font Family untuk Poppins
+val CustomFontFamily = FontFamily(
+    Font(R.font.poppins_bold, FontWeight.Normal)
+)
+
+// Typography kustom menggunakan Poppins
+private val CustomTypography = Typography(
+    displayLarge = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 48.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 34.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 24.sp
+    ),
+    headlineLarge = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 22.sp
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = CustomFontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 12.sp
+    )
+)
+
+// Skema Warna
 private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFF0c69df),  // Biru cerah
-    secondary = Color(0xFFD32F2F), // Merah terang
-    tertiary = Color(0xFF8D6E63), // Coklat gelap (aksen netral)
-    background = Color(0xFF1C1E71) // Biru gelap
+    primary = Color(0xFF0c69df),
+    secondary = Color(0xFFD32F2F),
+    tertiary = Color(0xFF8D6E63),
+    background = Color(0xFF1C1E71)
 )
 
-private val LightColorScheme = lightColorScheme(primary = Color(0xFF0c69df),  // Biru cerah
-    secondary = Color(0xFFD32F2F), // Merah terang
-    tertiary = Color(0xFF8D6E63), // Coklat gelap (aksen netral)
+private val LightColorScheme = lightColorScheme(
+    primary = Color(0xFF0c69df),
+    secondary = Color(0xFFD32F2F),
+    tertiary = Color(0xFF8D6E63),
     background = Color(0xFFFFFFFF)
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
 )
 
+// Fungsi Tema Utama
 @Composable
 fun JetpackComposeLayoutTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
@@ -47,14 +90,13 @@ fun JetpackComposeLayoutTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = CustomTypography, // Menggunakan Typography kustom
         content = content
     )
 }

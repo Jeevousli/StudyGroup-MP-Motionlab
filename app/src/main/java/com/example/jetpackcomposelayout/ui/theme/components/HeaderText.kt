@@ -11,8 +11,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposelayout.ui.theme.CustomFontFamily
 
 @Composable
 fun HeaderText(
@@ -27,8 +29,11 @@ fun HeaderText(
         // Teks
         Text(
             text = text,
-            style = MaterialTheme.typography.displayMedium,
-            fontWeight = FontWeight.Bold,
+            style = TextStyle(
+                fontFamily = CustomFontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = MaterialTheme.typography.displayMedium.fontSize
+            ),
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
@@ -41,3 +46,4 @@ fun HeaderText(
         )
     }
 }
+

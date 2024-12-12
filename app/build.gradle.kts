@@ -65,4 +65,7 @@ dependencies {
     // navigation
     implementation(libs.coil.compose)
     implementation(libs.androidx.navigation.compose.v260)
+    implementation(libs.androidx.ui.text.google.fonts)
+    implementation (libs.material3)  // Pastikan menggunakan material3 yang tepat
+    implementation (libs.androidx.material.icons.extended) // Untuk menggunakan ikon
 }
