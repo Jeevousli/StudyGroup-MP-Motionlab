@@ -18,4 +18,4 @@ Sementara itu, `getAllFavorites` dengan **@Query** mengembalikan daftar favorit 
 ![image](https://github.com/user-attachments/assets/62b3c6ae-d08e-4dbb-a48f-2d4eb6a7470f)
 `Room.databaseBuilder(...)` digunakan untuk membangun database dengan nama `"favorite_database"`. Setelah dibuat, instance tersebut disimpan ke dalam variabel `INSTANCE`, sehingga tidak perlu membuat ulang setiap kali database diakses.
 
-![image](https://github.com/user-attachments/assets/fde5b34f-a866-47d9-9ed5-2682c0c3933f)
+
